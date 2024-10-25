@@ -1,12 +1,11 @@
 .App {
   background: #d7e7f5;
-
   min-height: 100dvh;
 }
+
 ::-webkit-scrollbar {
   width: 12px;
 }
-
 ::-webkit-scrollbar-track {
   background: #f0f0f0;
   border-radius: 10px;

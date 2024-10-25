@@ -13,7 +13,7 @@ function App() {
       <OpeningAnimation />
       <div className="App">
         <Header />
-        <div className="">
+        <div className="pt-24 sm:pt-36 md:pt-40 lg:pt-0 px-3 md:px-20 lg:px-38">
           <Routes>
             <Route path="/" exact element={<Home />} />
             <Route path="/admin-dashboard" exact element={<AdimnDashboard />} />
