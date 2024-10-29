@@ -11,7 +11,7 @@ function FloatingIcons() {
   };
 
   return (
-    <div className="fixed bottom-0 right-0">
+    <div className="fixed bottom-10 right-10">
       <ul className="flex justify-end flex-col gap-4 p-5">
         <li>
           <Link to="/chat-ai">
