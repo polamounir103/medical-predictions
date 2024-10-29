@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <div className="">
         <LandPage />
-        <BetweenSections tColor="#d7e7f5" bColor="#83acff" />
+        <BetweenSections tColor="#d7e7f5" bColor="#a4c2ff" />
         <MainInfo />
       </div>
     </>

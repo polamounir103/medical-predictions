@@ -117,27 +117,31 @@ export default function Header() {
                   <Link to="/" onClick={menuClosing} aria-label="Go to Home">
                     Home
                   </Link>
-                </li>
+                </li>{" "}
                 <li>
                   <Link
-                    to="/about"
+                    to="predictions"
                     onClick={menuClosing}
                     aria-label="Go to Home"
                   >
-                    About
+                    Check
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/services"
+                    to="/news"
                     onClick={menuClosing}
                     aria-label="Go to Home"
                   >
-                    Services
+                    News
                   </Link>
                 </li>
                 <li>
-                  <Link to="/" onClick={menuClosing} aria-label="Go to Home">
+                  <Link
+                    to="/contact-us"
+                    onClick={menuClosing}
+                    aria-label="Go to Home"
+                  >
                     Contact Us
                   </Link>
                 </li>

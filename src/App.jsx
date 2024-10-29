@@ -5,6 +5,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
 import AdimnDashboard from "./pages/AdimnDashboard";
+import Predictions from "./pages/Predictions";
+import News from "./pages/News";
+import ContactUs from "./pages/ContactUs";
+import AboutUs from "./pages/AboutUs";
 // import Footer from "./components/shared/Footer";
 
 function App() {
@@ -15,9 +19,13 @@ function App() {
         <Header />
         <div className="">
           <Routes>
-            <Route path="/" exact element={<Home />} />
-            <Route path="/admin-dashboard" exact element={<AdimnDashboard />} />
-
+            <Route path="/" index element={<Home />} />
+            <Route path="/home" index element={<Home />} />
+            <Route path="/admin-dashboard" element={<AdimnDashboard />} />
+            <Route path="/predictions" element={<Predictions />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/about" element={<AboutUs />} />
             <Route path="/*" element={<NoPage />} />
           </Routes>
         </div>
