@@ -11,14 +11,14 @@ function FloatingIcons() {
   };
 
   return (
-    <div className="fixed bottom-10 right-10">
+    <div className="fixed bottom-0 lg:bottom-10 right-0 lg:right-10">
       <ul className="flex justify-end flex-col gap-4 p-5">
         <li>
           <Link to="/chat-ai">
             <img
               src={botIcon}
               alt="Chat AI"
-              className="floating-icon w-12 rounded-full "
+              className="floating-icon w-10 lg:w-12 rounded-full "
             />
           </Link>
         </li>
@@ -27,7 +27,7 @@ function FloatingIcons() {
             <img
               src={upArrow}
               alt="Scroll to Top"
-              className="floating-icon w-12 rounded-full "
+              className="floating-icon w-10 lg:w-12 rounded-full "
             />
           </button>
         </li>
