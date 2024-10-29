@@ -5,18 +5,17 @@
     rgba(188, 225, 255, 0.9),
     rgba(243, 244, 246, 0.9)
   ); */
-  position: fixed;
+  position: relative;
   width: 100%;
   top: 0px;
   left: 0;
-  z-index: 5;
+  z-index: 100;
 }
 .header {
   display: flex;
   justify-content: space-between;
   padding: 50px 60px;
   align-items: center;
-
 }
 
 .headerLogo {
@@ -26,6 +25,11 @@
 
 .header nav {
   display: flex;
+  @media (max-width: 768px) {
+    /* background: #ff0000; */
+    width: 100%;
+    justify-content: end;
+  }
 }
 
 .header nav div {
@@ -35,11 +39,6 @@
 
 .largManu {
   display: flex;
-}
-
-.smallMenu {
-  display: none;
-  color: #554469;
 }
 
 .button {
@@ -71,15 +70,19 @@ button {
 .header ul li a {
   text-decoration: none;
   transition: color 0.3s;
-   font-size: 22px;
+  font-size: 22px;
   font-weight: 700;
   cursor: pointer;
 }
 
 .header ul li a:hover {
-  color: #0284c7 ;
+  color: #0284c7;
 }
 
+.smallMenu {
+  display: none;
+  color: #554469;
+}
 .smallMenu {
   display: none;
   position: fixed;
@@ -146,9 +149,8 @@ button {
   padding: 10px 30px 10px 0px;
 }
 .menuToggeler {
-  position: fixed;
-  right: 40px;
-  top: 40px;
+  position: relative;
+
   display: none;
   color: #554469;
   z-index: 100;

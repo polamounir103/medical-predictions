@@ -1,0 +1,51 @@
+.menu-toggler-icon-box {
+  position: relative;
+  cursor: pointer;
+  min-height: 30px;
+  min-width: 30px;
+  /* background: #fd0000; */
+  padding: 15px 0;
+}
+.menu-toggler-icon-box .line {
+  width: 30px;
+  height: 3px;
+  background: #000;
+  transition: 0.3s ease;
+  position: absolute;
+  border-radius: 2px;
+}
+
+.menu-toggler-icon-box .line:nth-child(1) {
+  top: 0;
+  /* transform: translateY(0); */
+}
+
+.menu-toggler-icon-box .line:nth-child(2) {
+  top: 10px;
+}
+.menu-toggler-icon-box .line:nth-child(3) {
+  top: 20px;
+}
+
+.menu-toggler-icon-box.active .line {
+  background: #ffffff;
+}
+.menu-toggler-icon-box.active .line:nth-child(1) {
+  /* background: #000; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.menu-toggler-icon-box.active .line:nth-child(2) {
+  display: none;
+  /* transform: rotate(45deg); */
+}
+.menu-toggler-icon-box.active .line:nth-child(3) {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.bb{
+  background: linear-gradient( 180deg , red , blue);
+}
