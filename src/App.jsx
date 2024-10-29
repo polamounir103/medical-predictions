@@ -9,6 +9,8 @@ import Predictions from "./pages/Predictions";
 import News from "./pages/News";
 import ContactUs from "./pages/ContactUs";
 import AboutUs from "./pages/AboutUs";
+import FloatingIcons from "./components/ui/FloatingIcons";
+import ChatAI from "./pages/ChatAI";
 // import Footer from "./components/shared/Footer";
 
 function App() {
@@ -26,9 +28,11 @@ function App() {
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/news" element={<News />} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path="/chat-ai" element={<ChatAI />} />
             <Route path="/*" element={<NoPage />} />
           </Routes>
         </div>
+        <FloatingIcons />
         {/* <Footer /> */}
       </div>
     </BrowserRouter>

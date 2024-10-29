@@ -1,0 +1,9 @@
+.floating-icon {
+  box-shadow: 1px 1px 10px rgba(18, 18, 18, 0.712);
+  transition: all 0.3s ease;
+  background: #ffffff;
+  &:hover {
+    box-shadow: 1px 1px 20px rgba(248, 8, 8, 0.793);
+    scale: 1.1;
+  }
+}

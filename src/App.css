@@ -3,6 +3,7 @@
 @import "./styles/components/ui/OpeningAnimations.css";
 @import "./styles/components/shared/smallHeader.css";
 @import "./styles/components/shared/betweenSections.css";
+@import "./styles/components/ui/floatingIcon.css";
 
 .App {
   background: #d7e7f5;

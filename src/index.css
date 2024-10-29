@@ -48,6 +48,10 @@
 .s3 {
   transition: all 0.3s ease;
 }
+.s6{
+  transition: scale 6s ease;
+  
+}
 .bg-scale:hover {
   width: 105%;
   height: 105%;
