@@ -5,7 +5,7 @@ function LandPage() {
   return (
     <main className="flex flex-col lg:flex-row justify-center lg:items-center lg:justify-between px-3 md:px-20 pb-28 lg:px-38 gap-10 md:gap-20  ">
       <div className="flex flex-col items-center xl:items-start grow justify-end mt-52 sm:pt-20 md:pt-64 lg:pt-0 lg:mt-0 ">
-        <div className="capitalize text-center lg:text-start flex flex-col gap-12 ">
+        <div className="capitalize text-center lg:text-start flex flex-col gap-12 text-stone-50">
           <div className="flex flex-col gap-4">
             <p>Welcome To Our Team</p>
             <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold">

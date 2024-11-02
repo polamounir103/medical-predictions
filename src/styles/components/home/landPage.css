@@ -16,6 +16,9 @@
 main {
   height: calc(100svh );
 }
+/* .land-page-text{
+  color: #f5f5f5 !important;
+} */
 .read-start-btn {
   border: 2px solid #f5f5f5;
 }
