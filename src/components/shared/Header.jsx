@@ -39,8 +39,8 @@ export default function Header() {
 // ------------------------------------
 const [style, setStyle] = useState({
 
-  background: "linear-gradient(rgb(121, 193, 255) , rgb(0, 229, 254))",
-  boxShadow: "0 0 10px rgba(24, 24, 24, 0.736)"
+  background: "linear-gradient(rgba(121, 193, 255,0) , rgba(0, 229, 254,0))",
+  boxShadow: "0 0 10px rgba(24, 24, 24, 0)"
 });
 
 const handleScroll = () => {
