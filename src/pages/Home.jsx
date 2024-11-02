@@ -43,7 +43,7 @@ export default function Home() {
               ></path>
             </svg>
           </div>
-          <div className="landing-page-content">
+          <div className="landing-page-content ">
             <LandPage />
           </div>
           <div className="bottom-path"></div>

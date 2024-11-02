@@ -6,7 +6,7 @@ export default function Header() {
   const {
     mainHeader,
     header,
-    // headerLogo,
+    headerLogo,
     largManu,
     smallMenu,
     menuToggeler,
@@ -91,7 +91,7 @@ export default function Header() {
         </div>
       </div> */}
       <div className={`${header}`}>
-        {/* <img src="/network.svg" alt="Company Logo" className={headerLogo} /> */}
+        <h2 className={headerLogo} >Baymax</h2>
         <nav className="">
           <div className={headerNavBtnBox}>
             <button className={`${menuToggeler}`} onClick={menuToggeling}>
