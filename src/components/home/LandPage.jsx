@@ -47,7 +47,7 @@ function LandPage() {
             ${mainImg} 700w,
             ${mainImg} 1200w
           `}
-            sizes="(max-width: 600px) 600px, (max-width: 900px) 700px, 900px"
+            sizes="(max-width: 600px) 300px, (max-width: 900px) 600px, 900px"
           />
         </div>
       </div>
