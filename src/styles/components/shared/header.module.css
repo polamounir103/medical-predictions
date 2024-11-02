@@ -11,14 +11,16 @@
   left: 0;
   z-index: 100;
   color: #ffffff;
-  background: #ff000000;
+  background: #01ff9100;
+  transition: 0.5s linear;
 }
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 20px 50px;
   align-items: center;
-  background: #ff000000;
+  /* background: #00000000 !important; */
+  padding: 10px 20px ;
+
 }
 
 .headerLogo {
@@ -80,12 +82,12 @@ button {
 }
 
 .header ul li a:hover {
-  color: #0284c7;
+  color: #04c6ed;
 }
 
 .smallMenu {
   display: none;
-  color: #554469;
+
 }
 .smallMenu {
   display: none;
@@ -175,8 +177,5 @@ button {
   .header {
     padding: 10px 20px;
   }
-  .headerLogo {
-    width: 50px;
-    height: 50px;
-  }
+
 }

@@ -36,8 +36,41 @@ export default function Header() {
   const menuClosing = () => {
     setIsMenuShow(false);
   };
+// ------------------------------------
+const [style, setStyle] = useState({
+
+  background: "linear-gradient(rgb(121, 193, 255) , rgb(0, 229, 254))",
+  boxShadow: "0 0 10px rgba(24, 24, 24, 0.736)"
+});
+
+const handleScroll = () => {
+  const scrollPosition = window.scrollY;
+  const maxScroll = 400;
+  const newOpacity = Math.min(scrollPosition / maxScroll, 1);
+  const newBackground = `linear-gradient(rgba(121, 203, 210, ${newOpacity}), rgba(0, 190, 230, ${newOpacity}))`;
+  const newshadow = `0 0 10px rgba(24, 24, 24, ${newOpacity})`;
+
+  setStyle({
+    background: newBackground, 
+    boxShadow: newshadow,
+  });
+};
+
+useEffect(() => {
+  window.addEventListener("scroll", handleScroll);
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
+
   return (
-    <header className={`${mainHeader}`}>
+    <header
+      className={`${mainHeader}`}
+      style={{
+        ...style,
+        transition: "background 0.3s ease, opacity 0.3s ease",
+      }}
+    >
       {/* <div className="w-full flex justify-between px-5 md:px-10 lg:px-20 py-2 bg-neutral-800 text-gray-200">
         <div className="flex space-x-6 ">
           <a className="hover:opacity-75" target="_blank" rel="noreferrer">
@@ -91,7 +124,7 @@ export default function Header() {
         </div>
       </div> */}
       <div className={`${header}`}>
-        <h2 className={headerLogo} >Baymax</h2>
+        <h2 className={headerLogo}>Baymax</h2>
         <nav className="">
           <div className={headerNavBtnBox}>
             <button className={`${menuToggeler}`} onClick={menuToggeling}>
