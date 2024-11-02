@@ -22,13 +22,13 @@ function LandPage() {
         </div>
         <div className="flex w-full gap-5 justify-center lg:justify-start mt-5">
           <Link to="/predictions">
-            <button className="read-start-btn bg-slate-100 hover:bg-slate-100 text-cyan-600 font-semibold hover:text-black w-44 py-3 text-2xl border-2 border-gray-100 hover:border-transparent rounded">
+            <button className="read-start-btn bg-slate-100 hover:bg-slate-100 text-cyan-600 font-semibold hover:text-black w-28 md:w-44 py-3 md:text-2xl text-xl md:border-2 border-gray-100 hover:border-transparent rounded">
               Start
             </button>
           </Link>
 
           <SLink to="about" smooth={true} duration={1000}>
-            <button className="read-start-btn bg-transparent hover:bg-slate-100 text-white font-semibold hover:text-black w-44 py-3 text-2xl border-2 rounded">
+            <button className="read-start-btn bg-transparent hover:bg-slate-100 text-white font-semibold hover:text-black w-28 md:w-44 py-3 md:text-2xl text-xl border-2 rounded">
               Read More
             </button>
           </SLink>
