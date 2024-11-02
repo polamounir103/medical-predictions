@@ -15,20 +15,20 @@ function LandPage() {
           </div>
           <div>
             <p>
-              where you can consult your and your family's health from anywhere
+              where you can consult your and your familys health from anywhere
               with our Baymax
             </p>
           </div>
         </div>
-        <div className="flex gap-5 items-center xl:items-start mt-5">
+        <div className="flex w-full gap-5 justify-center lg:justify-start mt-5">
           <Link to="/predictions">
-            <button className="bg-slate-100 hover:bg-slate-100 text-cyan-600 font-semibold hover:text-black w-44 py-3 text-2xl border-2 border-gray-100 hover:border-transparent rounded">
+            <button className="read-start-btn bg-slate-100 hover:bg-slate-100 text-cyan-600 font-semibold hover:text-black w-44 py-3 text-2xl border-2 border-gray-100 hover:border-transparent rounded">
               Start
             </button>
           </Link>
 
           <SLink to="about" smooth={true} duration={1000}>
-            <button className="read-more-btn bg-transparent hover:bg-slate-100 text-white font-semibold hover:text-black w-44 py-3 text-2xl border-2 rounded">
+            <button className="read-start-btn bg-transparent hover:bg-slate-100 text-white font-semibold hover:text-black w-44 py-3 text-2xl border-2 rounded">
               Read More
             </button>
           </SLink>
@@ -37,7 +37,7 @@ function LandPage() {
       {/* rounded-full shadow-2xl shadow-blue-950 */}
       <div className="lg:pt-12 grow  flex justify-center items-center main-img-container  ">
         {/* <div className="drop-shadow-2xl border-t-2 lg:border-t-0 lg:border-s-2 border-blue-950 rounded-full pt-32"> */}
-        <div className="drop-shadow-2xl  border-blue-950 rounded-full pt-32">
+        <div className="drop-shadow-2xl  border-blue-950 rounded-full lg:pt-32">
           <img
             src={mainImg}
             alt="main-image"
