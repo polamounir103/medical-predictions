@@ -3,7 +3,7 @@ import { Link as SLink } from "react-scroll";
 import mainImg from "../../assets/images/baymax-hello.png";
 function LandPage() {
   return (
-    <main className="flex flex-col lg:flex-row justify-center lg:items-center lg:justify-between px-3 md:px-20 pb-28 lg:px-38 gap-10 md:gap-20 mt-10 ">
+    <main className="flex flex-col lg:flex-row justify-center lg:items-center lg:justify-between px-3 md:px-20 pb-28 lg:px-38 gap-10 md:gap-20  ">
       <div className="flex flex-col gap-5 items-center xl:items-start grow justify-end">
         <div className="uppercase text-center xl:text-start text-4xl md:text-5xl lg:text-6xl font-extrabold">
           <h1>

@@ -14,5 +14,5 @@
   filter: blur(20px);
 }
 main {
-  height: calc(100svh - 100px);
+  height: calc(100svh );
 }

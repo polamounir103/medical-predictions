@@ -5,17 +5,20 @@
     rgba(188, 225, 255, 0.9),
     rgba(243, 244, 246, 0.9)
   ); */
-  position: relative;
+  position: fixed;
   width: 100%;
   top: 0px;
   left: 0;
   z-index: 100;
+color: #ffffff;
+  background: #ff000000;
 }
 .header {
   display: flex;
   justify-content: space-between;
   padding: 50px;
   align-items: center;
+  background: #ff000000;
 }
 
 .headerLogo {
