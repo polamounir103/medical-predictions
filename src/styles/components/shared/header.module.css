@@ -1,23 +1,23 @@
 .mainHeader {
-  background: linear-gradient(
+  /* background: linear-gradient(
  
-    rgb(16, 229, 252),
-    rgb(4, 216, 220)
+    rgb(3, 216, 240),
+    rgb(0, 201, 205)
 
-  ) !important;
+  ) !important; */
   position: fixed;
   width: 100%;
   top: 0px;
   left: 0;
   z-index: 100;
-  
+
   color: #ffffff;
   background: #01ff9100;
   transition: 0.5s linear;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgb() ;
+  background: rgb();
 }
 .header {
   display: flex;

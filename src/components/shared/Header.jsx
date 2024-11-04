@@ -46,7 +46,7 @@ export default function Header() {
     const scrollPosition = window.scrollY;
     const maxScroll = 400;
     const newOpacity = Math.min(scrollPosition / maxScroll, 1);
-    const newBackground = `linear-gradient(rgba(16, 229, 252, ${newOpacity}), rgba(4, 216, 220, ${newOpacity}))`;
+    const newBackground = `linear-gradient(rgba(3,215,240, ${newOpacity}), rgba(0, 201, 210, ${newOpacity}))`;
     const newshadow = `0 0 10px rgba(24, 24, 24, ${newOpacity})`;
 
     setStyle({
