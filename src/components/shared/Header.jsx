@@ -122,8 +122,8 @@ export default function Header() {
           <a href="#">+201068550976</a>
         </div>
       </div> */}
-      <div className={`${header}`}>
-        <h2 className={headerLogo}>Baymax</h2>
+      <div className={`${header} text-3xl lg:text-5xl`}>
+        <h2 className={` ${headerLogo}`}>Baymax</h2>
         <nav className="">
           <div className={headerNavBtnBox}>
             <button className={`${menuToggeler}`} onClick={menuToggeling}>

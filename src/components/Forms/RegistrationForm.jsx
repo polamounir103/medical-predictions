@@ -5,7 +5,7 @@ function RegistrationForm() {
     <form className="registeration-form">
       <img src={Baymax} alt="" className="registration-form-img"/>
       <div className="registeration-form-container flex  flex-col justify-center items-center gap-8 ">
-        <h2 className=" self-start text-2xl lg:text-3xl">Create Account</h2>
+        <h2 className=" self-start text-xl lg:text-3xl">Create Account</h2>
         <div className="name-container w-full  flex flex-col sm:flex-row gap-5 ">
           <div className=" grow">
             <label htmlFor="First Name"> First Name</label>
