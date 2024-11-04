@@ -1,15 +1,16 @@
 .mainHeader {
   /* background: linear-gradient(
-    to right,
-    rgba(243, 244, 246, 0.9),
-    rgba(188, 225, 255, 0.9),
-    rgba(243, 244, 246, 0.9)
-  ); */
+ 
+    rgb(0, 209, 209),
+    rgb(0, 191, 249)
+
+  ) !important; */
   position: fixed;
   width: 100%;
   top: 0px;
   left: 0;
   z-index: 100;
+  
   color: #ffffff;
   background: #01ff9100;
   transition: 0.5s linear;
