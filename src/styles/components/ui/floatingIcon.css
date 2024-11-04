@@ -7,3 +7,6 @@
     scale: 1.1;
   }
 }
+.floating-icon-box {
+  z-index: 90;
+}
