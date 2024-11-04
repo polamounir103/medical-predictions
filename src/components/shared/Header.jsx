@@ -182,7 +182,7 @@ export default function Header() {
                 </li>
                 <li>
                   <Link
-                    to="/admin-dashboard"
+                    to="/register"
                     onClick={menuClosing}
                     aria-label="Go to Home"
                     className="border-2 px-3 py-2 hover:bg-white"
