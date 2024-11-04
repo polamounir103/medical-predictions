@@ -38,7 +38,7 @@ export default function Header() {
   };
   // ------------------------------------
   const [style, setStyle] = useState({
-    background: "linear-gradient(rgba(121, 193, 255,0) , rgba(0, 229, 254,0))",
+    background: "linear-gradient(rgba(9, 193, 225,0) , rgba(9, 193, 225,0))",
     boxShadow: "0 0 10px rgba(24, 24, 24, 0)",
   });
 
@@ -46,7 +46,7 @@ export default function Header() {
     const scrollPosition = window.scrollY;
     const maxScroll = 400;
     const newOpacity = Math.min(scrollPosition / maxScroll, 1);
-    const newBackground = `linear-gradient(rgba(121, 203, 210, ${newOpacity}), rgba(0, 190, 230, ${newOpacity}))`;
+    const newBackground = `linear-gradient(rgba(9, 193, 225, ${newOpacity}), rgba(2, 217, 255, ${newOpacity}))`;
     const newshadow = `0 0 10px rgba(24, 24, 24, ${newOpacity})`;
 
     setStyle({
