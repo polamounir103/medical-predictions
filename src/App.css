@@ -4,9 +4,14 @@
 @import "./styles/components/shared/smallHeader.css";
 @import "./styles/components/shared/betweenSections.css";
 @import "./styles/components/ui/floatingIcon.css";
+@import "./styles/components/Forms/RegistrationForm.css";
 
 .App {
   min-height: 100dvh;
+  /* background: #849ecf; */
+}
+.page-body{
+  min-height: 100svh;
 }
 .landing-page {
   position: relative;
@@ -44,8 +49,8 @@
   right: 0;
 }
 .bottom-path {
-  height: 50dvh;
-  bottom: 0;
+  height: 50vh;
+  bottom: -0px ;
   clip-path: polygon(24% 59%, 66% 33%, 100% 45%, 100% 100%, 0 100%, 0 42%);
   background: #ffffff;
 }

@@ -1,12 +1,23 @@
-import LandPage from "../components/home/LandPage";
-import MainInfo from "../components/home/MainInfo";
-import BetweenSections from "../components/shared/BetweenSections";
-
-export default function Home() {
+import RegistrationForm from "../components/Forms/RegistrationForm";
+// import Baymax from "../assets/images/baymax-hello.png";
+// import { useEffect, useState } from "react";
+function Register() {
+//   const [imgScale, setImgScale] = useState(1);
+//   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+//   const imgResizing = () => {
+//     let scale = (screenWidth / 100) * 10;
+//     setImgScale(scale);
+//   };
+//   useEffect(() => {
+//     let width = window.innerWidth;
+//     console.log(width);
+//     setScreenWidth(width);
+//     imgResizing();
+//   }, [window.innerWidth]);
   return (
     <>
-      <div className="">
-        <div className="landing-page">
+      <div className=" relative overflow-hidden">
+        <div className="min-h-svh ">
           <div className="top-path">
             <svg width="0" height="0">
               <defs>
@@ -43,14 +54,21 @@ export default function Home() {
               ></path>
             </svg>
           </div>
-          <div className="landing-page-content ">
-            <LandPage />
+          <div className="registeration-page-content ">
+            <RegistrationForm />
+            {/* <div className="registeration-img-box">
+              <img
+                src={Baymax}
+                alt=""
+                style={{ transform: `scale(${imgScale})` }}
+              />
+            </div> */}
           </div>
-          <div className="bottom-path"></div>
+          <div className="bottom-path bottom-0"></div>
         </div>
-        <BetweenSections tColor="#ffffff" bColor="#849ecf" />
-        <MainInfo />
       </div>
     </>
   );
 }
+
+export default Register;

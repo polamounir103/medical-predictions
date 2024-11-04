@@ -11,7 +11,8 @@ import ContactUs from "./pages/ContactUs";
 import AboutUs from "./pages/AboutUs";
 import FloatingIcons from "./components/ui/FloatingIcons";
 import ChatAI from "./pages/ChatAI";
-// import Footer from "./components/shared/Footer";
+import Footer from "./components/shared/Footer";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
       <OpeningAnimation />
       <div className="App">
         <Header />
-        <div className="">
+        <div className="page-body">
           <Routes>
             <Route path="/" index element={<Home />} />
             <Route path="/home" index element={<Home />} />
@@ -29,11 +30,12 @@ function App() {
             <Route path="/news" element={<News />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/chat-ai" element={<ChatAI />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/*" element={<NoPage />} />
           </Routes>
         </div>
         <FloatingIcons />
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </BrowserRouter>
   );

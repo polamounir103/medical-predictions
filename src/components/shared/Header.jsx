@@ -36,32 +36,31 @@ export default function Header() {
   const menuClosing = () => {
     setIsMenuShow(false);
   };
-// ------------------------------------
-const [style, setStyle] = useState({
-
-  background: "linear-gradient(rgba(121, 193, 255,0) , rgba(0, 229, 254,0))",
-  boxShadow: "0 0 10px rgba(24, 24, 24, 0)"
-});
-
-const handleScroll = () => {
-  const scrollPosition = window.scrollY;
-  const maxScroll = 400;
-  const newOpacity = Math.min(scrollPosition / maxScroll, 1);
-  const newBackground = `linear-gradient(rgba(121, 203, 210, ${newOpacity}), rgba(0, 190, 230, ${newOpacity}))`;
-  const newshadow = `0 0 10px rgba(24, 24, 24, ${newOpacity})`;
-
-  setStyle({
-    background: newBackground, 
-    boxShadow: newshadow,
+  // ------------------------------------
+  const [style, setStyle] = useState({
+    background: "linear-gradient(rgba(121, 193, 255,0) , rgba(0, 229, 254,0))",
+    boxShadow: "0 0 10px rgba(24, 24, 24, 0)",
   });
-};
 
-useEffect(() => {
-  window.addEventListener("scroll", handleScroll);
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY;
+    const maxScroll = 400;
+    const newOpacity = Math.min(scrollPosition / maxScroll, 1);
+    const newBackground = `linear-gradient(rgba(121, 203, 210, ${newOpacity}), rgba(0, 190, 230, ${newOpacity}))`;
+    const newshadow = `0 0 10px rgba(24, 24, 24, ${newOpacity})`;
+
+    setStyle({
+      background: newBackground,
+      boxShadow: newshadow,
+    });
   };
-}, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <header
@@ -163,7 +162,10 @@ useEffect(() => {
                 <li>
                   <Link
                     to="/news"
-                    onClick={menuClosing}
+                    onClick={() => {
+                      window.scrollY = 0;
+                      menuClosing();
+                    }}
                     aria-label="Go to Home"
                   >
                     News
@@ -183,8 +185,9 @@ useEffect(() => {
                     to="/admin-dashboard"
                     onClick={menuClosing}
                     aria-label="Go to Home"
+                    className="border-2 px-3 py-2 hover:bg-white"
                   >
-                    Admin
+                    Login
                   </Link>
                 </li>
               </ul>
