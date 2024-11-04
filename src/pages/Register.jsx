@@ -54,7 +54,7 @@ function Register() {
               ></path>
             </svg>
           </div>
-          <div className="registeration-page-content px-2 ">
+          <div className="registeration-page-content px-2 pb-64 lg:pb-0 ">
             <RegistrationForm />
             {/* <div className="registeration-img-box">
               <img
