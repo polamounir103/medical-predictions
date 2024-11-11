@@ -1,7 +1,7 @@
-import RegistrationForm from "../components/Forms/RegistrationForm";
+import LoginForm from "../components/Forms/LoginForm";
 // import Baymax from "../assets/images/baymax-hello.png";
 // import { useEffect, useState } from "react";
-function Register() {
+function Login() {
 //   const [imgScale, setImgScale] = useState(1);
 //   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 //   const imgResizing = () => {
@@ -16,18 +16,10 @@ function Register() {
 //   }, [window.innerWidth]);
   return (
     <>
-      <div className="registeration-page">
-        <div className="min-h-svh">
-    
+      <div className="login-page">
+        <div className="min-h-svh ">
           <div className="registeration-page-content px-2 pb-64 lg:pb-0 ">
-            <RegistrationForm />
-            {/* <div className="registeration-img-box">
-              <img
-                src={Baymax}
-                alt=""
-                style={{ transform: `scale(${imgScale})` }}
-              />
-            </div> */}
+            <LoginForm />
           </div>
           <div className="bottom-path bottom-0"></div>
         </div>
@@ -36,4 +28,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Login;

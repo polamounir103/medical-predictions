@@ -8,11 +8,12 @@ import AdimnDashboard from "./pages/AdimnDashboard";
 import Predictions from "./pages/Predictions";
 import News from "./pages/News";
 import ContactUs from "./pages/ContactUs";
-import AboutUs from "./pages/AboutUs";
+// import AboutUs from "./pages/AboutUs";
 import FloatingIcons from "./components/ui/FloatingIcons";
 import ChatAI from "./pages/ChatAI";
 import Footer from "./components/shared/Footer";
 import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -28,8 +29,9 @@ function App() {
             <Route path="/predictions" element={<Predictions />} />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/news" element={<News />} />
-            <Route path="/about" element={<AboutUs />} />
+            {/* <Route path="/about" element={<AboutUs />} /> */}
             <Route path="/chat-ai" element={<ChatAI />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/*" element={<NoPage />} />
           </Routes>

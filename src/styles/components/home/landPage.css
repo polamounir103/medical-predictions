@@ -1,3 +1,6 @@
+.landing-page{
+  background: linear-gradient(rgb(11, 125, 192), rgb(0, 220, 194));
+}
 .main-img-container {
   overflow: visible !important;
 }

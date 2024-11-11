@@ -7,11 +7,29 @@
 @import "./styles/components/Forms/RegistrationForm.css";
 
 .App {
-  min-height: 100dvh;
+  /* min-height: 100dvh; */
   /* background: #849ecf; */
 }
-.page-body{
-  min-height: 100svh;
+
+footer {
+  background: #1f1f1f !important;
+  color: #ffffff !important;
+}
+
+footer div p,
+footer div a {
+  color: #ffffff !important;
+}
+.page {
+  background: #f5f5f5;
+  min-height: 60dvh;
+  padding-top: 100px;
+}
+.page-body {
+  /* min-height: 100svh; */
+}
+.registeration-page , .login-page {
+  background: linear-gradient(rgb(11, 125, 192), rgb(0, 220, 194));
 }
 .landing-page {
   position: relative;
@@ -31,18 +49,16 @@
 .top-path {
   background: linear-gradient(180deg, #2ec4db 2%, #05e898ee);
   color: #00c3ac;
-
 }
-.right-path{
+.right-path {
   background: linear-gradient(135deg, #b4e1ff, #f60000);
   right: 0;
   top: 40%;
   transform: translateX(30%) rotate(-90deg);
-  height: auto; 
-  @media (max-width: 992px ) {
-      display: none;
+  height: auto;
+  @media (max-width: 992px) {
+    display: none;
   }
-
 }
 .right-path svg {
   position: absolute;
@@ -50,7 +66,7 @@
 }
 .bottom-path {
   height: 50vh;
-  bottom: -0px ;
+  bottom: -0px;
   clip-path: polygon(24% 59%, 66% 33%, 100% 45%, 100% 100%, 0 100%, 0 42%);
   background: #ffffff;
 }

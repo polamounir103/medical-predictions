@@ -1,6 +1,6 @@
 function ChatAI() {
   return (
-    <div>
+    <div className="page">
       <div>Chat With AI</div>
     </div>
   );
