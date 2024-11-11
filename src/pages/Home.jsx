@@ -1,6 +1,7 @@
 import LandPage from "../components/home/LandPage";
 import MainInfo from "../components/home/MainInfo";
 import BetweenSections from "../components/shared/BetweenSections";
+import ContactUs from "./ContactUs";
 
 export default function Home() {
   return (
@@ -24,6 +25,8 @@ export default function Home() {
         </div>
         <BetweenSections tColor="#ffffff" bColor="#F0F0F0" />
         <MainInfo />
+        {/* <BetweenSections tColor="#F0F0F0" bColor="#F0F0F0" /> */}
+        <ContactUs />
       </div>
     </>
   );

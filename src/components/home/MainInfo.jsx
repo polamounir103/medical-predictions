@@ -1,46 +1,28 @@
-import { useState } from "react";
-
+import baymaxImg from "../../assets/images/baymax-hello.png";
 function MainInfo() {
-  const [color, setColor] = useState("");
-  const [rcolor, setRcolor] = useState({});
-
-  const hexToRgb = (hex) => {
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result
-      ? {
-          r: parseInt(result[1], 16),
-          g: parseInt(result[2], 16),
-          b: parseInt(result[3], 16),
-        }
-      : null;
-  };
-
-  const handleColorChange = (e) => {
-    const newColor = e.target.value;
-    setColor(newColor);
-    document.body.style.backgroundColor = newColor;
-
-    const rgbColor = hexToRgb(newColor);
-    if (rgbColor) {
-      setRcolor(rgbColor);
-    } else {
-      // Handle invalid color input
-      console.error("Invalid hex color code:", newColor);
-      setRcolor({});
-    }
-  };
-
   return (
     <section className="main-info-section pt-14" id="about">
-      <div className="text-center">Some Info about the Website</div>
-      <input type="color" value={color} onChange={handleColorChange} />
-      <p>Selected Color: {color}</p>
-      <p>
-        Selected Color in RGB:
-        {rcolor.r && rcolor.g && rcolor.b
-          ? `rgb(${rcolor.r}, ${rcolor.g}, ${rcolor.b})`
-          : "Invalid color"}
-      </p>
+      <div className="flex flex-col md:flex-row gap-20 px-2 items-center justify-center">
+        <div className="main-info-text grow flex justify-center w-full  items-center">
+          <div className="flex flex-col gap-10 text-centerw-full items-center justify-center">
+            <h2 className="text-3xl font-semibold">Some Info about Baymax</h2>
+            <p className="text-lg">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel
+              condimentum libero, vel viverra lectus. Morbi vel gravida dolor.
+              Nulla facilisi. Donec at neque vel erat pulvinar tempor. Sed nec
+              nisl vel erat facilisis tristique. Aliquam erat volutpat. Donec
+              vel cursus ex, in consectetur mauris.
+            </p>
+            <p className="text-lg">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel
+              condimentum libero, vel viverra lectus. Morbi vel gravida dolor.
+              Nulla facilisi. Donec at neque vel erat pulvinar tempor. Sed nec
+              nisl vel erat facilisis tristique. Aliquam erat volutpat. Donec
+              vel cursus ex, in consectetur mauris.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

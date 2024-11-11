@@ -28,7 +28,8 @@ footer div a {
 .page-body {
   /* min-height: 100svh; */
 }
-.registeration-page , .login-page {
+.registeration-page,
+.login-page {
   background: linear-gradient(rgb(11, 125, 192), rgb(0, 220, 194));
 }
 .landing-page {
@@ -69,4 +70,34 @@ footer div a {
   bottom: -0px;
   clip-path: polygon(24% 59%, 66% 33%, 100% 45%, 100% 100%, 0 100%, 0 42%);
   background: #ffffff;
+}
+/* ----------------------------------- */
+.main-info-img-box {
+  position: relative;
+  background-color: rgb(11, 125, 192);
+  min-width: 750px;
+  /* height: 600px; */
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  margin-left: -250px;
+  overflow: hidden;
+}
+.main-info-img-box img {
+  position: absolute;
+  left: -50px;
+  bottom: -75px;
+  rotate: 10deg;
+}
+
+/* ----------------------------------- */
+.main-info-text {
+  min-width: 240px;
+  max-width: 900px;
+}
+.contact-us-form {
+  min-width: 240px;
+  max-width: 600px;
+}
+.contact-us-form textarea {
+  resize: none;
 }
