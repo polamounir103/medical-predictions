@@ -14,6 +14,8 @@ import ChatAI from "./pages/ChatAI";
 import Footer from "./components/shared/Footer";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import EditProfile from "./pages/EditProfile";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
             <Route path="/chat-ai" element={<ChatAI />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/edit-profile" element={<EditProfile />} />
             <Route path="/*" element={<NoPage />} />
           </Routes>
         </div>

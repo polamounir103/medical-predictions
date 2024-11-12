@@ -1,6 +1,6 @@
 function Predictions() {
   return (
-    <div>Predictions Page</div>
+    <div className="page">Predictions Page</div>
   )
 }
 

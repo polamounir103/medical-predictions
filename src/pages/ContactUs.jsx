@@ -8,7 +8,7 @@ function ContactUs() {
           We Are Ready To Serve You Anytime
         </h2>
         <h3 className="text-xl text-gray-500 mt-5">
-          Contact us for help, Feedback , Problens
+          Contact us for help, Feedback , Problems
         </h3>
       </div>
       <ContactUsForm />

@@ -4,7 +4,12 @@ export default function Footer() {
       <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
-            <img src="/logo.svg" className="mr-5 h-14" alt="logo" />
+            <div className="flex items-center mb-5 ">
+              <img src="/logo.svg" className="mr-5 h-14" alt="logo" />
+              <h2 className="text-4xl font-bold">
+                Baymax <sub className="text-xs">©</sub>
+              </h2>
+            </div>
             <p className="max-w-xs mt-2 space-y-1ext-gray-600">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
               accusantium.
@@ -85,7 +90,6 @@ export default function Footer() {
           </div>
           {/* ------------------------------------------------------- */}
           <div className="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-3 pt-10">
-    
             <div>
               <p className="font-bold text-lg">Helpful Links</p>
               <nav className="flex flex-col mt-2 space-y-1 text-sm text-gray-500">
@@ -110,7 +114,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <p className="mt-8 text-xs text-gray-800">© 2024 Store</p>
+        <p className="mt-8 text-xs text-gray-800">© 2024 BAYMAX</p>
       </div>
     </footer>
   );
