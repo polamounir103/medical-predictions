@@ -1,7 +1,7 @@
 function ContactUsForm() {
   return (
     <form className="flex flex-col gap-5 contact-us-form ">
-      <div className="flex gap-5">
+      <div className="flex gap-5 flex-col md:flex-row">
         <input
           type="text"
           placeholder="Enter Your Full Name"
