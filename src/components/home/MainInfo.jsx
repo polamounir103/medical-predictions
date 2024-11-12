@@ -1,8 +1,17 @@
 import baymaxImg from "../../assets/images/baymax-hello.png";
 function MainInfo() {
   return (
-    <section className="main-info-section pt-14" id="about">
-      <div className="flex flex-col md:flex-row gap-20 px-2 items-center justify-center">
+    <section className="main-info-section py-40" id="about">
+      <div className="flex flex-col lg:flex-row gap-20 px-2 items-center justify-center">
+        <div className=" main-info-img-box  ">
+          <img
+            className="-scale-x-100 absolute translate-x-9"
+            src={baymaxImg}
+            alt="baymax-info"
+          />
+          {/* <div className="rounded-full overflow-hidden relative bg-slate-900 w-full h-full">
+          </div> */}
+        </div>
         <div className="main-info-text grow flex justify-center w-full  items-center">
           <div className="flex flex-col gap-10 text-centerw-full items-center justify-center">
             <h2 className="text-3xl font-semibold">Some Info about Baymax</h2>
