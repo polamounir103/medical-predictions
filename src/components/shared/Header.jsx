@@ -129,6 +129,17 @@ export default function Header() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  to="/profile"
+                  onClick={() => {
+                    closeMenu();
+                  }}
+                  className="capitalize"
+                >
+                  Profile
+                </Link>
+              </li>
             </ul>
           </div>
         </nav>
