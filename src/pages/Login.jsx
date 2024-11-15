@@ -2,6 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Baymax from "../assets/images/forma.png";
 import { useState } from "react";
 import useNotify from "../hooks/useNotify";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../redux/slices/AuthSlice";
 function Login() {
   const notify = useNotify();
   const navigate = useNavigate();
@@ -10,7 +12,7 @@ function Login() {
     email: "",
     password: "",
   });
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -19,42 +21,57 @@ function Login() {
     });
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   console.log(formData);
+
+  //   setLoading(true);
+  //   try {
+  //     const response = await fetch(
+  //       "https://be47-197-60-250-17.ngrok-free.app/health/login/",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(formData),
+  //       }
+  //     );
+  //     console.log(response);
+  //     const result = await response.json();
+
+  //     if (!response.ok) {
+  //       notify(result.error || "Registration failed!", "error");
+  //       return;
+  //     }
+
+  //     notify(result.message || "Registration successful!", "success");
+  //     navigate("/");
+  //   } catch (error) {
+  //     notify("Network error! Please try again.", "error");
+  //     console.log(error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+  const dispatch = useDispatch();
+  //  const { loading, error } = useSelector((state) => state.auth);
+  const { loading } = useSelector((state) => state.auth);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
 
-    setLoading(true);
-    try {
-      const response = await fetch(
-        "https://be47-197-60-250-17.ngrok-free.app/health/login/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-      console.log(response);
-      const result = await response.json();
+    const resultAction = await dispatch(loginUser(formData));
 
-      if (!response.ok) {
-        notify(result.error || "Registration failed!", "error");
-        return;
-      }
-
-      notify(result.message || "Registration successful!", "success");
-      navigate("/");
-    } catch (error) {
-      notify("Network error! Please try again.", "error");
-      console.log(error);
-    } finally {
-      setLoading(false);
+    if (loginUser.fulfilled.match(resultAction)) {
+      notify(resultAction.payload.message || "Login successful!", "success");
+      navigate("/"); // Navigate after successful login
+    } else {
+      notify(resultAction.payload || "Login failed!", "error");
     }
   };
   return (
     <>
-      <div className="login-page">
+      <div className="login-page relative">
         <div className="min-h-svh ">
           <div className="registeration-page-content px-2 pb-64 lg:pb-0 ">
             <form className="registeration-form" onSubmit={handleSubmit}>
@@ -63,26 +80,30 @@ function Login() {
                 <h2 className=" self-start text-xl lg:text-3xl">Login</h2>
 
                 <div className="w-full">
-                  <label htmlFor="username"> Username</label>
+                  <label htmlFor="loginUsername"> Username</label>
                   <input
+                    id="loginUsername"
                     type="username"
                     className="w-full registeration-form-container-input"
                     name="username"
                     onChange={handleChange}
+                    autoComplete="true"
                   />
                 </div>
                 <div className="w-full">
-                  <label htmlFor="Password"> Password</label>
+                  <label htmlFor="loginPassword"> Password</label>
                   <input
+                    id="loginPassword"
                     type="password"
                     className="w-full registeration-form-container-input"
                     name="password"
                     onChange={handleChange}
+                    autoComplete="false"
                   />
                 </div>
                 <div className="w-full">
-                  <button type="submit" name="" id="" className="w-full">
-                    Login
+                  <button type="submit" className="w-full">
+                    {loading ? "Logging in..." : "Login"}
                   </button>
                   <p className="mt-2">
                     Don't have account ? <Link to="/register">Register</Link>
@@ -90,9 +111,10 @@ function Login() {
                 </div>
               </div>
             </form>
+            {/* {isAuthenticated && <p>Welcome back!</p>} */}
           </div>
-          <div className="bottom-path bottom-0"></div>
         </div>
+        <div className="bottom-path bottom-0"></div>
       </div>
     </>
   );

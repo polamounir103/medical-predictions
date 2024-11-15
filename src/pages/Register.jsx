@@ -45,7 +45,7 @@ function Register() {
           body: JSON.stringify(formData),
         }
       );
-      
+
       const result = await response.json();
 
       if (!response.ok) {
@@ -64,7 +64,7 @@ function Register() {
   };
   return (
     <>
-      <div className="registeration-page">
+      <div className="registeration-page relative">
         <div className="min-h-svh">
           <div className="registeration-page-content px-2 pb-64 lg:pb-0 ">
             <form className="registeration-form" onSubmit={handleSubmit}>
@@ -79,59 +79,63 @@ function Register() {
                 </h2>
                 <div className="name-container w-full flex flex-col sm:flex-row gap-5">
                   <div className="grow">
-                    <label htmlFor="Fname">First Name</label>
+                    <label htmlFor="registerFname">First Name</label>
                     <input
                       type="text"
-                      id="Fname"
+                      id="registerFname"
                       className="w-full registeration-form-container-input"
                       value={formData.Fname}
                       name="Fname"
                       onChange={handleChange}
                       required
+                      autoComplete="true"
                     />
                   </div>
                   <div className="grow flex">
-                    <label htmlFor="Lname">Last Name</label>
+                    <label htmlFor="registerLname">Last Name</label>
                     <input
                       type="text"
-                      id="Lname"
+                      id="registerLname"
                       className="w-full registeration-form-container-input"
                       value={formData.Lname}
                       name="Lname"
                       onChange={handleChange}
                       required
+                      autoComplete="true"
                     />
                   </div>
                 </div>
                 <div className="w-full">
-                  <label htmlFor="username">Username</label>
+                  <label htmlFor="registerUsername">Username</label>
                   <input
                     type="text"
-                    id="username"
+                    id="registerUsername"
                     className="w-full registeration-form-container-input"
                     value={formData.username}
                     name="username"
                     onChange={handleChange}
                     required
+                    autoComplete="true"
                   />
                 </div>
                 <div className="w-full">
-                  <label htmlFor="email">Email</label>
+                  <label htmlFor="registerEmail">Email</label>
                   <input
                     type="email"
-                    id="email"
+                    id="registerEmail"
                     className="w-full registeration-form-container-input"
                     value={formData.email}
                     name="email"
                     onChange={handleChange}
                     required
+                    autoComplete="true"
                   />
                 </div>
                 <div className="w-full">
-                  <label htmlFor="password">Password</label>
+                  <label htmlFor="registerPassword">Password</label>
                   <input
                     type="password"
-                    id="password"
+                    id="registerPassword"
                     className="w-full registeration-form-container-input"
                     value={formData.password}
                     name="password"
@@ -140,10 +144,12 @@ function Register() {
                   />
                 </div>
                 <div className="w-full">
-                  <label htmlFor="confirmPassword">Confirm Password</label>
+                  <label htmlFor="registerConfirmPassword">
+                    Confirm Password
+                  </label>
                   <input
                     type="password"
-                    id="confirmPassword"
+                    id="registerConfirmPassword"
                     className="w-full registeration-form-container-input"
                     value={formData.confirmPassword}
                     name="confirmPassword"

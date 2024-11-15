@@ -48,9 +48,8 @@
 .s3 {
   transition: all 0.3s ease;
 }
-.s6{
+.s6 {
   transition: scale 6s ease;
-  
 }
 .bg-scale:hover {
   width: 105%;
@@ -60,8 +59,8 @@
 /* --------------------------------------------- */
 /* Custom toast position for top-right */
 .Toastify__toast-container--top-right {
-  top: 100px ;
-  right: 10px ;
+  top: 100px;
+  right: 10px;
 }
 
 /* Custom toast position for bottom-left */
@@ -83,3 +82,47 @@
   color: white !important;
   border-radius: 8px !important;
 } */
+
+/* --------------------------------- */
+.news-title-header {
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+.news-title-header div {
+  position: relative;
+  z-index: 2;
+}
+.news-title-header > div > div {
+  background: #f5f5f5;
+  border-radius: 20px;
+}
+.news-title-header div button {
+  background-color: #a7a4a4;
+  color: white;
+  border-radius: 20px;
+}
+
+.news-title-header::after {
+  position: absolute;
+  content: "";
+  width: 90%;
+  height: 2px;
+  background: #555;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  z-index: 1;
+}
+
+.news-card-box{
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(112, 112, 112, 0.79);
+  box-shadow: 0px 5px 1px rgba(120, 120, 120, 0.735);
+}
+.mySwiper {
+  padding:0 0 20px 0;
+}

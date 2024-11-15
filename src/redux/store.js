@@ -1,10 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import firstLoadReducer from "./slices/firstLoadSlice";
+import authReducer from "./slices/authSlice";
 const store = configureStore({
   reducer: {
-
-    firstLoad : firstLoadReducer
+    firstLoad: firstLoadReducer,
+    auth: authReducer,
   },
 });
 
