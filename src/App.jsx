@@ -21,7 +21,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_relativeSplatPath: true }}>
       <OpeningAnimation />
       <div className="App">
         <Header />

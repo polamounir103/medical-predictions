@@ -117,12 +117,28 @@
   z-index: 1;
 }
 
-.news-card-box{
+.news-card-box {
+  height: 100%;
   border-radius: 20px;
   overflow: hidden;
   border: 2px solid rgba(112, 112, 112, 0.79);
   box-shadow: 0px 5px 1px rgba(120, 120, 120, 0.735);
 }
+.news-card-box {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.news-card-body {
+  flex-grow: 1;
+  height: 300px;
+}
 .mySwiper {
-  padding:0 0 20px 0;
+  padding: 0 0 20px 0;
+}
+.mySwiper .swiper-slide {
+  min-height: 600px;
+  display: flex;
+  align-items: stretch; 
 }

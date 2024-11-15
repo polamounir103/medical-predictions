@@ -6,9 +6,9 @@ function Profile() {
       <h2 className="m-5">Profile</h2>
 
       <Link to="/edit-profile">
-        <a className=" border border-sky-950 font-semibold px-10 py-5 text-center rounded-3xl">
+        <h2 className=" border border-sky-950 font-semibold px-10 py-5 text-center rounded-3xl">
           EDIT
-        </a>
+        </h2>
       </Link>
     </div>
   );
