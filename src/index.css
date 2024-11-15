@@ -58,3 +58,28 @@
 }
 
 /* --------------------------------------------- */
+/* Custom toast position for top-right */
+.Toastify__toast-container--top-right {
+  top: 100px ;
+  right: 10px ;
+}
+
+/* Custom toast position for bottom-left */
+/* .Toastify__toast-container--bottom-left {
+  bottom: 20px !important;
+  left: 20px !important;
+} */
+
+/* Example: Make the toast more centered */
+/* .Toastify__toast-container--top-center {
+  top: 50px !important;
+  left: 50% !important;
+  transform: translateX(-50%);
+} */
+
+/* Custom styles for individual toasts */
+/* .Toastify__toast {
+  background-color: #333 !important;
+  color: white !important;
+  border-radius: 8px !important;
+} */
