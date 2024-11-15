@@ -3,7 +3,7 @@ import Baymax from "../assets/images/forma.png";
 import { useState } from "react";
 import useNotify from "../hooks/useNotify";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../redux/slices/AuthSlice";
+import { loginUser } from "../redux/slice/userSlice";
 function Login() {
   const notify = useNotify();
   const navigate = useNavigate();
