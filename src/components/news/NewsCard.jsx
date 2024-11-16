@@ -11,10 +11,10 @@ function NewsCard({ id, data }) {
   return (
     <div
       className="news-card-container bg-white rounded-lg shadow-lg overflow-hidden"
-      dir={dir} 
+      dir={dir}
     >
       <img
-        src={testImg}
+        src={data.image}
         alt={`Image for ${data.title}`} // Descriptive alt text
         className="w-full h-48 object-cover"
       />

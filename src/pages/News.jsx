@@ -6,6 +6,7 @@ import "swiper/css";
 import NewsCard from "../components/news/NewsCard";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { fetchNews } from "../redux/slice/newsSlice";
+import { Link } from "react-router-dom";
 
 function News() {
   const dispatch = useDispatch();
@@ -65,9 +66,9 @@ function News() {
               >
                 {articles.map((item, index) => (
                   <SwiperSlide key={index}>
-                    <div className="news-card-box">
+                    <Link to={item.url} className="news-card-box">
                       <NewsCard id={item.id || index} data={item} />
-                    </div>
+                    </Link>
                   </SwiperSlide>
                 ))}
               </Swiper>

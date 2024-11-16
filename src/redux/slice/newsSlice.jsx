@@ -14,7 +14,7 @@ export const fetchNews = createAsyncThunk(
       if (!response.ok) {
         throw new Error(data.message || "Failed to fetch news");
       }
-
+      console.log(data.articles);
       return data.articles; // Returning only the articles
     } catch (error) {
       return rejectWithValue(error.message);
