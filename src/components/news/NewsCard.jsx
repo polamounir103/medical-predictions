@@ -14,8 +14,10 @@ function NewsCard({ id, data }) {
       />
       <div className="news-card-body p-5 flex flex-col justify-between gap-4">
         <div>
-          <h2 className="text-lg font-semibold mb-2">{data.title}</h2>
-          <p className="text-sm text-gray-700">{data.description}</p>
+          <h2 className="text-lg font-semibold mb-2 text-right">
+            {data.title}
+          </h2>
+          <p className="text-sm text-gray-700 text-right">{data.description}</p>
         </div>
         <div className="news-card-footer flex justify-between items-center mt-auto">
           <button className="bg-sky-600 px-5 py-2 rounded-lg text-white font-semibold">

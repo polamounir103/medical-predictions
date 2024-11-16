@@ -12,8 +12,10 @@ function News() {
 
 const getData = async () => {
   try {
+    const key = "abf8a0d1826ad281551b591eddbf2c3d";
     const response = await fetch(
-      "https://newsapi.org/v2/top-headlines?country=us&apiKey=5a8add0775a94ce8818f100b2a84b510"
+      // "https://newsapi.org/v2/top-headlines?country=us&apiKey=5a8add0775a94ce8818f100b2a84b510"
+      `https://gnews.io/api/v4/top-headlines?country=eg&category=general&apikey=${key}`
     );
     const result = await response.json();
 
