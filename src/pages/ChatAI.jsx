@@ -9,6 +9,7 @@ import {
 import userAvater from "../assets/icons/user-avater.svg";
 import botAvater from "../assets/icons/bot-icon.png";
 import sendIcon from "../assets/icons/send-icon.svg";
+import { VscClearAll } from "react-icons/vsc";
 
 const ChatAI = () => {
   const [prompt, setPrompt] = useState("");
@@ -41,9 +42,9 @@ const ChatAI = () => {
     }
   };
   return (
-    <div className="flex flex-col justify-end h-screen pt-40 pb-20">
+    <div className="flex flex-col justify-end h-screen pt-48 pb-10">
       {/* Chat history */}
-      <div className="flex flex-col h-full mx-auto px-5 lg:px-52 w-full">
+      <div className="flex flex-col h-full mx-auto px-5 lg:px-32 w-full">
         <div className="overflow-auto">
           <div
             className="bg-slate-100 rounded-lg ai-chat-container"
@@ -69,7 +70,7 @@ const ChatAI = () => {
                     className="w-10 p-1 bg-sky-300 rounded-full"
                   />
                   <div className="pt-2 overflow-x-auto">
-                    <pre>{message.ai}</pre>
+                    <p>{message.ai}</p>
                   </div>
                 </div>
               </div>
@@ -93,16 +94,16 @@ const ChatAI = () => {
           <button
             onClick={handleGenerate}
             disabled={isLoading}
-            className="bg-blue-500 disabled:bg-slate-300 text-white p-3 rounded-md"
+            className="bg-blue-500 disabled:bg-slate-300 text-white p-3 rounded-md w-14 aspect-square"
             ref={submitBtnRef}
           >
-            <img src={sendIcon} className="w-7" alt="" />
+            <img src={sendIcon} className="" alt="" />
           </button>
           <button
             onClick={handleClearChat}
-            className="bg-red-500 text-white p-3 rounded-md"
+            className="bg-red-500 text-white p-3 rounded-md w-14 aspect-square flex justify-center items-center"
           >
-            Clear
+            <VscClearAll className="text-3xl font-bold" />
           </button>
         </div>
         {error && <p className="text-red-500 mt-2">{error}</p>}

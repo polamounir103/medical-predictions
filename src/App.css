@@ -88,6 +88,6 @@ footer div a {
 
 .ai-chat-container {
   min-width: 100%;
-  min-height: 75dvh;
+  min-height: 60svh;
   overflow-y: auto;
 }
