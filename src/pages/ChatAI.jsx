@@ -41,12 +41,12 @@ const ChatAI = () => {
     }
   };
   return (
-    <div className="flex flex-col justify-end h-screen pt-28 pb-20">
+    <div className="flex flex-col justify-end h-screen pt-40 pb-20">
       {/* Chat history */}
-      <div className="flex flex-col h-full mx-auto px-5 lg:px-52  min-w-full">
+      <div className="flex flex-col h-full mx-auto px-5 lg:px-52 w-full">
         <div className="overflow-auto">
           <div
-            className="bg-slate-100 rounded-lg ai-chat-container my-20"
+            className="bg-slate-100 rounded-lg ai-chat-container"
             ref={chatContainerRef}
           >
             {conversation.map((message, index) => (
