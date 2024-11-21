@@ -69,7 +69,7 @@ const ChatAI = () => {
                     className="w-10 p-1 bg-sky-300 rounded-full"
                   />
                   <div className="pt-2 overflow-x-auto">
-                    <p>{message.ai}</p>
+                    <pre>{message.ai}</pre>
                   </div>
                 </div>
               </div>
