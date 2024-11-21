@@ -76,12 +76,18 @@ footer div a {
   /* padding: 7.5px 20px; */
   border-radius: 0.5rem;
 }
-.title{
- font-size: 22px;
- font-weight: 700;
+.title {
+  font-size: 22px;
+  font-weight: 700;
 }
-.title-info{
+.title-info {
   font-size: 14px;
   color: rgb(166, 159, 159);
   text-transform: capitalize;
+}
+
+.ai-chat-container {
+  min-width: 100%;
+  min-height: 75dvh;
+  overflow-y: auto;
 }
