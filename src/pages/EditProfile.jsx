@@ -3,7 +3,7 @@ function EditProfile() {
   return (
     <div className="page">
       <div className="flex flex-col gap-20 px-2 md:px-10 lg:px-20 pt-10 pb-20">
-        <div>
+        <div className="ps-5">
           <h2 className="title">Edit Profile</h2>
           <p className="title-info">update your account information</p>
         </div>
@@ -15,17 +15,16 @@ function EditProfile() {
                 alt=""
                 className="w-32 aspect-square rounded-full"
               />
-              <div>
-                <h2>Pola Mounir</h2>
+              <div className="flex flex-col gap-2">
+                <h2 className="text-2xl font-semibold">Pola Mounir</h2>
                 <p>User Type</p>
               </div>
             </div>
             <div className="self-center md:self-end flex gap-5 ">
-              <button className="btn bg-black text-white font-semibold">
+              <button className="btn px-2 py-1 bg-black text-white font-semibold">
                 Upload new picture
               </button>
-              <button className="btn bg-rose-200 text-red-700 font-semibold ">
-                {" "}
+              <button className="btn px-2 py-1 bg-rose-200 text-red-700 font-semibold ">
                 Remove
               </button>
             </div>
@@ -39,19 +38,31 @@ function EditProfile() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <div className="flex flex-col">
               <p>First Name</p>
-              <input type="text" />
+              <input
+                type="text"
+                className="px-3 py-2 rounded-md shadow-md focus:shadow-sky-500 focus:outline-none"
+              />
             </div>
             <div className="flex flex-col">
               <p>Last Name</p>
-              <input type="text" />
+              <input
+                type="text"
+                className="px-3 py-2 rounded-md shadow-md focus:shadow-sky-500 focus:outline-none"
+              />
             </div>
             <div className="flex flex-col">
               <p>Email address</p>
-              <input type="email" />
+              <input
+                type="email"
+                className="px-3 py-2 rounded-md shadow-md focus:shadow-sky-500 focus:outline-none"
+              />
             </div>
             <div className="flex flex-col">
               <p>Phone Number</p>
-              <input type="tel" />
+              <input
+                type="tel"
+                className="px-3 py-2 rounded-md shadow-md focus:shadow-sky-500 focus:outline-none"
+              />
             </div>
           </div>
         </div>
@@ -63,26 +74,43 @@ function EditProfile() {
           <div className="flex flex-col gap-5 ">
             <div className="flex flex-col">
               <p>Current Password</p>
-              <input type="password" />
+              <input
+                type="password"
+                className="px-3 py-2 rounded-md shadow-md focus:shadow-sky-500 focus:outline-none"
+              />
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
               <div className="flex flex-col">
                 <p>New Password</p>
-                <input type="password" />
+                <input
+                  type="password"
+                  className="px-3 py-2 rounded-md shadow-md focus:shadow-sky-500 focus:outline-none"
+                />
               </div>
               <div className="flex flex-col">
                 <p>confirm Password</p>
-                <input type="password" />
+                <input
+                  type="password"
+                  className="px-3 py-2 rounded-md shadow-md focus:shadow-sky-500 focus:outline-none"
+                />
               </div>
             </div>
           </div>
         </div>
-        <div className="">
+        <div className="flex justify-between">
           <button
             type="submit"
-            className="btn bg-sky-600 text-white font-semibold "
+            className="btn w-52 py-1 px-2 bg-emerald-500 text-white font-semibold "
           >
             Update changes
+          </button>
+          <button
+            className="btn w-52 py-1 px-2 bg-gray-600 text-white font-semibold "
+            onClick={() => {
+              window.location.href = "/profile";
+            }}
+          >
+            Go Back
           </button>
         </div>
       </div>
