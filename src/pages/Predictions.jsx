@@ -8,6 +8,8 @@ import {
 
 import sendIcon from "../assets/icons/send-icon.svg";
 import { VscClearAll } from "react-icons/vsc";
+import { IoMdAdd } from "react-icons/io";
+import { IoSend } from "react-icons/io5";
 import axios from "axios";
 
 const Predictions = () => {
@@ -97,29 +99,37 @@ const Predictions = () => {
     setUserSymptoms([]);
     setSymptomError(null);
   };
+  const addNewSymptom = (event) => {
+    if (event.key === "Enter") {
+      addSymptom();
+    }
+  };
 
+  const handleDeleteSymptom = (index) => {
+    setUserSymptoms(userSymptoms.splice((index, 1)))
+  }
+  const hideSuggestion=()=>{
+    setSuggestions([]);
+  }
   return (
-    <div className="flex flex-col justify-center pt-48 pb-10">
-      <div className="flex flex-col justify-center items-center gap-10">
-        <div>
-          <div
-            style={{
-              width: "300px",
-              margin: "20px auto",
-              position: "relative",
-            }}
-          >
+    <div className="flex flex-col pt-48 pb-10 px-5 lg:px-20 min-h-svh">
+      <div className="flex flex-col justify-center items-center gap-10 w-full">
+        <div className="grid gap-10 grid-cols-8 w-full">
+          <div className="relative col-span-8 lg:col-span-4 flex flex-col gap-2 grow w-full">
+            <h2 className="text-xl font-semibold">Enter Symptoms here</h2>
             <input
               type="text"
               value={inputValue}
               onChange={handlePredictChange}
+              onKeyUp={addNewSymptom}
               placeholder="Enter a symptom"
-              className={`w-full border-2 p-3 rounded-md ${
+              className={`grow w-full  border-2 p-3 rounded-md ${
                 symptomError ? "border-red-500" : "border-gray-400"
               }`}
             />
+
             {suggestions.length > 0 && (
-              <ul className="absolute z-10 w-full bg-white border rounded-md">
+              <ul className="absolute top-20 z-10 w-full h-96 bg-white border rounded-md overflow-y-auto">
                 {suggestions.map((symptom, index) => (
                   <li
                     key={index}
@@ -131,62 +141,78 @@ const Predictions = () => {
                 ))}
               </ul>
             )}
-          </div>
 
-          <div>
-            {userSymptoms.length > 0 && (
-              <div className="mb-4 flex flex-wrap gap-2">
-                {userSymptoms.map((symptom, index) => (
-                  <span
-                    key={index}
-                    className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm"
-                  >
-                    {symptom}
-                  </span>
-                ))}
+            <div className="w-full flex flex-col gap-4 mt-5">
+              <div className="flex gap-2 justify-between w-full">
+                <button
+                  onClick={addSymptom}
+                  disabled={isLoading}
+                  className="bg-green-600 disabled:bg-slate-300 text-white p-3 rounded-full w-14 aspect-square flex items-center justify-center text-2xl"
+                >
+                  <IoMdAdd />
+                </button>
+                <button
+                  onClick={handleSubmit}
+                  disabled={isLoading}
+                  className="bg-blue-500 disabled:bg-slate-300 text-white p-3 rounded-full w-14 aspect-square flex items-center justify-center text-2xl"
+                  ref={submitBtnRef}
+                >
+                  <IoSend />
+                </button>
+                <button
+                  onClick={handleClearChat}
+                  className="bg-red-500 disabled:bg-slate-300 text-white p-3 rounded-full w-14 aspect-square flex justify-center items-center text-2xl font-bold"
+                >
+                  <VscClearAll className="" />
+                </button>
               </div>
-            )}
+
+              {symptomError && (
+                <p className="text-red-500 mt-2"> 🚫 {symptomError}</p>
+              )}
+            </div>
+          </div>
+          <div className="col-span-8 lg:col-span-4 flex flex-col gap-2">
+            <h2 className="text-xl font-semibold">Here is your Symptoms</h2>
+            <div className="border border-gray-400 min-h-20 w-full p-5 rounded-md">
+              {userSymptoms.length > 0 && (
+                <ul className="mb-4 flex flex-wrap gap-2 w-full justify-start items-start">
+                  {userSymptoms.map((symptom, index) => (
+                    <li
+                      key={index}
+                      className="bg-blue-100 text-blue-800 px-5 py-1 rounded-full text-sm relative pe-10"
+                    >
+                      {symptom}
+
+                      <button
+                        className=" absolute end-3 top-1/2 -translate-y-1/2"
+                        onClick={() => handleDeleteSymptom(index)}
+                      >
+                        x
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           </div>
         </div>
-        <div className="p-5 lg:px-40">
-          <div className="flex gap-2">
-            <button
-              onClick={addSymptom}
-              disabled={isLoading}
-              className="bg-blue-500 disabled:bg-slate-300 text-white p-3 rounded-md w-14 aspect-square"
-            >
-              ADD
-            </button>
-            <button
-              onClick={handleSubmit}
-              disabled={isLoading}
-              className="bg-blue-500 disabled:bg-slate-300 text-white p-3 rounded-md w-14 aspect-square"
-              ref={submitBtnRef}
-            >
-              <img src={sendIcon} alt="Send" />
-            </button>
-            <button
-              onClick={handleClearChat}
-              className="bg-red-500 text-white p-3 rounded-md w-14 aspect-square flex justify-center items-center"
-            >
-              <VscClearAll className="text-3xl font-bold" />
-            </button>
-          </div>
-        </div>
+
         <div>
           {error && <p className="text-red-500 mt-2">{error}</p>}
-          {symptomError && <p className="text-red-500 mt-2">{symptomError}</p>}
 
           {lastReplay && (
-            <div className="px-10 flex flex-col gap-2 mt-4">
-              <p className="">Here is the possible list of illnesses:</p>
+            <div className=" flex flex-col gap-5 mt-4">
+              <p className="text-2xl font-semibold">
+                Here is the possible list of illnesses:
+              </p>
               <ul>
-                {illnessList.map((ill, idx) => (
-                  <li key={idx}> - {ill}</li>
-                ))}
+                {illnessList.map(
+                  (ill, idx) => idx !== 0 && <li key={idx}>- {ill}</li>
+                )}
               </ul>
-              <p>
-                <strong className="block">**Important:**</strong>
+              <p className="flex flex-col gap-2">
+                <strong className="block text-3xl"> ⚠️ Important ⚠️</strong>
                 This list is not exhaustive and should not be used for
                 self-diagnosis. So see a doctor for accurate diagnosis and
                 treatment. These symptoms can be associated with many other

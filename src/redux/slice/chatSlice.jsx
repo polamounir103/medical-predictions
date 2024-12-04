@@ -52,7 +52,9 @@ const chatSlice = createSlice({
         state.lastReplay = action.payload.response;
         const phraseToRemove = "Here is the possible list of illnesses:";
         const formattedReplay = state.lastReplay.replace(phraseToRemove, "");
-        state.illnessList = formattedReplay.split("*");
+        const finalReplay = formattedReplay.split("*");
+
+        state.illnessList = finalReplay;
       })
       .addCase(fetchContent.rejected, (state, action) => {
         state.isLoading = false;
