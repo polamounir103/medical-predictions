@@ -50,7 +50,7 @@ const chatSlice = createSlice({
           lastMessage.ai = action.payload.response;
         }
         state.lastReplay = action.payload.response;
-        const phraseToRemove = "Here is the possible list of illnesses: ";
+        const phraseToRemove = "Here is the possible list of illnesses:";
         const formattedReplay = state.lastReplay.replace(phraseToRemove, "");
         state.illnessList = formattedReplay.split("*");
       })
