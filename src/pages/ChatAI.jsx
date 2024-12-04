@@ -1,115 +1,20 @@
-import { useState, useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchContent,
-  clearChat,
-  addUserMessage,
-} from "../redux/slice/chatSlice";
-
-import userAvater from "../assets/icons/user-avater.svg";
-import botAvater from "../assets/icons/bot-icon.png";
-import sendIcon from "../assets/icons/send-icon.svg";
-import { VscClearAll } from "react-icons/vsc";
-
-const ChatAI = () => {
-  const [prompt, setPrompt] = useState("");
-  const dispatch = useDispatch();
-  const { conversation, isLoading, error } = useSelector((state) => state.chat);
-
-  const chatEndRef = useRef(null);
-  const chatContainerRef = useRef(null);
-  const submitBtnRef = useRef(null);
-
-  useEffect(() => {
-    // chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [conversation]);
-
-  const handleGenerate = () => {
-    if (prompt.trim()) {
-      dispatch(addUserMessage(prompt));
-      dispatch(fetchContent(prompt));
-      setPrompt("");
-    }
-  };
-
-  const handleClearChat = () => {
-    dispatch(clearChat());
-  };
-
-  const handleSubmit = (event) => {
-    if (event.key === "Enter") {
-      handleGenerate();
-    }
-  };
+function ChatAI() {
   return (
-    <div className="flex flex-col justify-end h-screen pt-48 pb-10">
-      {/* Chat history */}
-      <div className="flex flex-col h-full mx-auto px-5 lg:px-32 w-full">
-        <div className="overflow-auto">
-          <div
-            className="bg-slate-100 rounded-lg ai-chat-container"
-            ref={chatContainerRef}
-          >
-            {conversation.map((message, index) => (
-              <div key={index} className="mb-4 flex flex-col gap-3">
-                <div className="bg-blue-100 p-3 rounded-lg mb-1 self-start w-full lg:w-1/2 flex items-start gap-5">
-                  {/* <strong>User:</strong> */}
-                  <img
-                    src={userAvater}
-                    alt="User Avatar"
-                    className="w-10 p-1 bg-red-500 rounded-full"
-                  />
-                  <div className="pt-2 overflow-x-auto">
-                    <p>{message.user}</p>
-                  </div>
-                </div>
-                <div className="bg-green-100 p-3 rounded-lg self-end w-full lg:w-1/2  flex items-start gap-5">
-                  <img
-                    src={botAvater}
-                    alt="Bot Avatar"
-                    className="w-10 p-1 bg-sky-300 rounded-full"
-                  />
-                  <div className="pt-2 overflow-x-auto">
-                    <p>{message.ai}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-            <div className="" ref={chatEndRef} />
-          </div>
-        </div>
-      </div>
+    <>
+      <div className="w-full min-h-svh flex flex-col items-center justify-center">
+        <div className="w-full h-full ">
+          <iframe
+            src="https://www.yeschat.ai/i/gpts-2OTogwefA6-Medical-GPT"
+            style={{ width: "100%", height: "85svh" }}
 
-      {/* Input and Buttons */}
-      <div className="p-5 lg:px-40">
-        <div className="flex gap-2">
-          <input
-            type="text"
-            className="flex-1 border p-3 rounded-md"
-            value={prompt}
-            onChange={(e) => setPrompt(e.target.value)}
-            placeholder="Type a message..."
-            onKeyPress={handleSubmit}
+            title="Chatbot"
+            allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+
           />
-          <button
-            onClick={handleGenerate}
-            disabled={isLoading}
-            className="bg-blue-500 disabled:bg-slate-300 text-white p-3 rounded-md w-14 aspect-square"
-            ref={submitBtnRef}
-          >
-            <img src={sendIcon} className="" alt="" />
-          </button>
-          <button
-            onClick={handleClearChat}
-            className="bg-red-500 text-white p-3 rounded-md w-14 aspect-square flex justify-center items-center"
-          >
-            <VscClearAll className="text-3xl font-bold" />
-          </button>
         </div>
-        {error && <p className="text-red-500 mt-2">{error}</p>}
       </div>
-    </div>
+    </>
   );
-};
+}
 
 export default ChatAI;

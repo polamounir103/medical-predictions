@@ -8,7 +8,7 @@ export const fetchContent = createAsyncThunk(
       const response = await runChat(prompt);
       return { prompt, response };
     } catch (error) {
-      return rejectWithValue("Failed to fetch AI response.");
+      return rejectWithValue("Somthing went wrong. Please try again later.");
     }
   }
 );
@@ -17,6 +17,8 @@ const chatSlice = createSlice({
   name: "chat",
   initialState: {
     conversation: [],
+    lastReplay: "",
+    illnessList: [],
     isLoading: false,
     error: null,
   },
@@ -47,10 +49,15 @@ const chatSlice = createSlice({
         if (lastMessage && lastMessage.ai === "Loading...") {
           lastMessage.ai = action.payload.response;
         }
+        state.lastReplay = action.payload.response;
+        const phraseToRemove = "Here is the possible list of illnesses: ";
+        const formattedReplay = state.lastReplay.replace(phraseToRemove, "");
+        state.illnessList = formattedReplay.split("*");
       })
       .addCase(fetchContent.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+        state.lastReplay = "";
 
         // Handle error for the last message
         const lastMessage = state.conversation[state.conversation.length - 1];
