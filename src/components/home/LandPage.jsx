@@ -41,13 +41,8 @@ function LandPage() {
           <img
             src={mainImg}
             alt="main-image"
-            className=" "
-            srcSet={`
-            ${mainImg} 300w, 
-            ${mainImg} 600w,
-            ${mainImg} 1200w
-          `}
-            sizes="(max-width: 600px) 300px, (max-width: 900px) 600px, 900px"
+            className="w-64 md:w-80 lg:w-auto"
+            
           />
         </div>
       </div>

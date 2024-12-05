@@ -2,7 +2,7 @@ import ContactUsForm from "../components/Forms/ContactUsForm";
 
 function ContactUs() {
   return (
-    <section className="flex justify-center items-center flex-col gap-10 py-24 page">
+    <section className=" page flex flex-col gap-8 ">
       <div className="text-center">
         <h2 className="text-3xl font-semibold">
           We Are Ready To Serve You Anytime
@@ -11,7 +11,9 @@ function ContactUs() {
           Contact us for help, Feedback , Problems
         </h3>
       </div>
-      <ContactUsForm />
+      <div className="px-10 mb-28 grow md:self-center">
+        <ContactUsForm />
+      </div>
     </section>
   );
 }
