@@ -1,4 +1,4 @@
-import  { useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,6 +7,7 @@ import NewsCard from "../components/news/NewsCard";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { fetchNews } from "../redux/slice/newsSlice";
 import { Link } from "react-router-dom";
+import NewsArt from "../components/news/NewsArt";
 
 function News() {
   const dispatch = useDispatch();
@@ -27,9 +28,11 @@ function News() {
               </h2>
             </div>
             <div className="px-2">
-              <button className="px-2 py-1 text-xs sm:text-sm sm:px-4 sm:py-3">
-                View More
-              </button>
+              <a href="#moreNews">
+                <button className="px-2 py-1 text-xs sm:text-sm sm:px-4 sm:py-3">
+                  View More
+                </button>
+              </a>
             </div>
           </div>
         </div>
@@ -74,6 +77,25 @@ function News() {
               </Swiper>
             )}
           </div>
+        </div>
+      </div>
+      <hr />
+      <div id="moreNews" className="pt-40">
+        <div className="px-5 pb-20">
+          <h2 className="text-2xl font-bold mb-5">Here More News</h2>
+          {loading ? (
+            <p>Loading news...</p>
+          ) : articles.length === 0 ? (
+            <p>No news available</p>
+          ) : (
+            <div className="flex flex-col gap-10">
+              {articles.map((item, index) => (
+                <Link key={index} to={item.url} className="news-card-box">
+                  <NewsArt id={item.id || index} data={item} />
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

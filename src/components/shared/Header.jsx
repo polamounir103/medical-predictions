@@ -67,12 +67,25 @@ export default function Header() {
   const closeMenu = () => setIsMenuShow(false);
 
   // Links for navigation
+  const [user, setUser] = useState(null); // Change initial value to null
+  useEffect(() => {
+    const loggedInUser =
+      JSON.parse(sessionStorage.getItem("loggedInUser")) ||
+      JSON.parse(localStorage.getItem("loggedInUser"));
+    if (loggedInUser) {
+      setUser(loggedInUser); // Set user if logged in
+    }
+  }, [isHome]);
+
   const links = [
     { path: "/", label: "home" },
     { path: "/predictions", label: "predictions" },
     { path: "/chat-ai", label: "chat" },
     { path: "/news", label: "news" },
-    { path: "/login", label: "login" },
+    // Conditionally add the Profile or Login link
+    ...(user
+      ? [{ path: "/profile", label: "profile" }]
+      : [{ path: "/login", label: "login" }]),
   ];
 
   return (
@@ -108,38 +121,25 @@ export default function Header() {
           <div
             className={`${screenWidth > 768 ? largManu : smallMenu} ${
               isMenuShow && smallMenuShow
-            } `}
+            }`}
           >
             <ul className={isMenuShow ? showMenu : hideMenu}>
               {links.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    onClick={() => {
-                      closeMenu();
-                    }}
+                    onClick={closeMenu}
                     aria-label={`Go to ${link.label}`}
                     className={`${
-                      link.label == "login" ? "border-2" : ""
+                      link.label === "login" ? "border-2" : ""
                     } capitalize ${
-                      link.path == location.pathname && headerActiveLink
+                      link.path === location.pathname && headerActiveLink
                     }`}
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link
-                  to="/profile"
-                  onClick={() => {
-                    closeMenu();
-                  }}
-                  className="capitalize"
-                >
-                  Profile
-                </Link>
-              </li>
             </ul>
           </div>
         </nav>

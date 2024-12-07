@@ -1,7 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import profileImg from "../assets/images/profile-image.jpg";
+import { useEffect, useState } from "react";
 
 function Profile() {
+  const navigate = useNavigate();
+  const [user, setUser] = useState({});
+  useEffect(() => {
+    const loggedInUser =
+      JSON.parse(sessionStorage.getItem("loggedInUser")) ||
+      JSON.parse(localStorage.getItem("loggedInUser"));
+    if (loggedInUser) {
+      setUser(loggedInUser);
+    } else {
+      navigate("/login");
+    }
+  }, [navigate]);
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("loggedInUser");
+    localStorage.removeItem("loggedInUser");
+    navigate("/");
+  };
   return (
     <div className="page">
       <div className="">
@@ -19,7 +38,7 @@ function Profile() {
                   className="w-32 aspect-square rounded-full"
                 />
                 <div className="flex flex-col gap-2">
-                  <h2 className="text-2xl font-semibold">Pola Mounir</h2>
+                  <h2 className="text-2xl font-semibold">{`${user.Fname} ${user.Lname}`}</h2>
                   <p>User Type</p>
                 </div>
               </div>
@@ -40,26 +59,26 @@ function Profile() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
               <div className="flex flex-col">
                 <h2 className="text-xl font-bold">Name</h2>
-                <h3 className="text-lg font-medium ps-2">Pola Mounir</h3>
+                <h3 className="text-lg font-medium ps-2">{`${user.Fname} ${user.Lname}`}</h3>
               </div>
 
               <div className="flex flex-col">
                 <h2 className="text-xl font-bold">Email address</h2>
-                <h3 className="text-lg font-medium ps-2">pola@gmail.com</h3>
+                <h3 className="text-lg font-medium ps-2">{`${user.email}`}</h3>
               </div>
               <div className="flex flex-col">
-                <h2 className="text-xl font-bold">Phone Number</h2>
-                <h3 className="text-lg font-medium ps-2">01234567890</h3>
+                <h2 className="text-xl font-bold">Username</h2>
+                <h3 className="text-lg font-medium ps-2">{user.username}</h3>
               </div>
             </div>
           </div>
 
           <div className="flex justify-center lg:justify-end">
-            <Link to="/">
-              <button className="btn bg-red-600 text-white border border-sky-950 font-semibold w-52 px-10 py-3 text-center rounded-3xl">
+           
+              <button className="btn bg-red-600 text-white border border-sky-950 font-semibold w-52 px-10 py-3 text-center rounded-3xl" onClick={handleLogout}>
                 Logout
               </button>
-            </Link>
+           
           </div>
         </div>
       </div>

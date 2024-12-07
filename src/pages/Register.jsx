@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import { Bounce, toast } from "react-toastify";
 import Baymax from "../assets/images/forma.png";
 import { Link, useNavigate } from "react-router-dom";
@@ -14,6 +14,7 @@ function Register() {
     password: "",
     confirmPassword: "",
   });
+
   const [loading, setLoading] = useState(false);
 
   const notify = useNotify();
@@ -62,12 +63,62 @@ function Register() {
       setLoading(false);
     }
   };
+
+  const handleSubmition = (e) => {
+    e.preventDefault();
+
+    if (formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    // Create a new user object
+    const newUser = {
+      Fname: formData.Fname,
+      Lname: formData.Lname,
+      username: formData.username,
+      email: formData.email,
+      password: formData.password, // Avoid storing plain passwords in production
+    };
+
+    // Retrieve existing users from localStorage
+    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Add the new user to the existing users array
+    existingUsers.push(newUser);
+
+    // Save the updated users array back to localStorage
+    localStorage.setItem("users", JSON.stringify(existingUsers));
+
+    // alert("User registered successfully!");
+
+    // Reset the form
+    setFormData({
+      Fname: "",
+      Lname: "",
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    });
+    navigate("/login");
+  };
+
+      useEffect(() => {
+        const loggedInUser =
+          JSON.parse(sessionStorage.getItem("loggedInUser")) ||
+          JSON.parse(localStorage.getItem("loggedInUser"));
+        if (loggedInUser) {
+          // Redirect to dashboard or any protected route
+          navigate("/"); // Change this to your desired route
+        }
+      }, [navigate]);
   return (
     <>
       <div className="registeration-page relative">
         <div className="min-h-svh">
           <div className="registeration-page-content px-2 pb-64 lg:pb-0 ">
-            <form className="registeration-form" onSubmit={handleSubmit}>
+            <form className="registeration-form" onSubmit={handleSubmition}>
               <img
                 src={Baymax}
                 alt="Baymax"

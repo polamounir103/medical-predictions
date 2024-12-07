@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import Baymax from "../assets/images/forma.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useNotify from "../hooks/useNotify";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../redux/slice/userSlice";
@@ -57,6 +57,7 @@ function Login() {
   const dispatch = useDispatch();
   //  const { loading, error } = useSelector((state) => state.auth);
   const { loading } = useSelector((state) => state.auth);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -69,12 +70,49 @@ function Login() {
       notify(resultAction.payload || "Login failed!", "error");
     }
   };
+
+  const [formError , setFormError] = useState(null)
+  const handleSubmition = (e) => {
+    e.preventDefault();
+
+    // Retrieve the users array from localStorage
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Find the user that matches the entered username/email
+    const foundUser = users.find(
+      (user) =>
+        user.username === formData.username || user.email === formData.username
+    );
+
+    // Check if user exists and password matches
+    if (foundUser && foundUser.password === formData.password) {
+      // Save the logged-in user in sessionStorage or localStorage
+      sessionStorage.setItem("loggedInUser", JSON.stringify(foundUser));
+
+      // Optionally, redirect the user after login
+      navigate("/"); // Replace "/dashboard" with your desired route
+
+      // alert("Login successful!");
+    } else {
+      setFormError("Invalid username/email or password");
+    }
+  };
+
+    useEffect(() => {
+      const loggedInUser =
+        JSON.parse(sessionStorage.getItem("loggedInUser")) ||
+        JSON.parse(localStorage.getItem("loggedInUser"));
+      if (loggedInUser) {
+        // Redirect to dashboard or any protected route
+        navigate("/profile"); 
+      }
+    }, [navigate]);
   return (
     <>
       <div className="login-page relative">
         <div className="min-h-svh ">
           <div className="registeration-page-content px-2 pb-64 lg:pb-0 ">
-            <form className="registeration-form" onSubmit={handleSubmit}>
+            <form className="registeration-form" onSubmit={handleSubmition}>
               <img src={Baymax} alt="" className="registration-form-img" />
               <div className="registeration-form-container flex  flex-col justify-center items-center gap-8 ">
                 <h2 className=" self-start text-xl lg:text-3xl">Login</h2>
@@ -100,6 +138,11 @@ function Login() {
                     onChange={handleChange}
                     autoComplete="false"
                   />
+                </div>
+                <div>
+                  {formError && (
+                    <div className="text-red-500 text-center">{formError}</div>
+                  )}
                 </div>
                 <div className="w-full">
                   <button type="submit" className="w-full">

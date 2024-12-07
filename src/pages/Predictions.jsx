@@ -81,11 +81,12 @@ const Predictions = () => {
     )}. Can you help me diagnose the possible illness I may have? 
     note : I know that you are not medical model but i want the diagnostic as info 
     so provide me only the list of possible illness just the list
-    and make your answer exactly like the following build and it is nessessary to make the bulid  :
-    "here is the possible list of illness : 
+    and make your answer exactly like the following build masseage and it is nessessary to make the bulid and do not change in it :
+    "here is the possible list of illness and its percentage of it truth: 
 
-    * example
-    * example
+    * example .
+    * example .
+    "
     `;
 
     dispatch(addUserMessage(finalPrompt));
@@ -106,11 +107,11 @@ const Predictions = () => {
   };
 
   const handleDeleteSymptom = (index) => {
-    setUserSymptoms(userSymptoms.splice((index, 1)))
-  }
-  const hideSuggestion=()=>{
+    setUserSymptoms(userSymptoms.splice((index, 1)));
+  };
+  const hideSuggestion = () => {
     setSuggestions([]);
-  }
+  };
   return (
     <div className="flex flex-col pt-48 pb-10 px-5 lg:px-20 min-h-svh">
       <div className="flex flex-col justify-center items-center gap-10 w-full">
@@ -208,10 +209,10 @@ const Predictions = () => {
               </p>
               <ul>
                 {illnessList.map(
-                  (ill, idx) => idx !== 0 && <li key={idx}>- {ill}</li>
+                  (ill, idx) => idx !== 0 && <li key={idx}>→ {ill}</li>
                 )}
               </ul>
-              <p className="flex flex-col gap-2">
+              <p className="flex flex-col gap-2 mt-10">
                 <strong className="block text-3xl"> ⚠️ Important ⚠️</strong>
                 This list is not exhaustive and should not be used for
                 self-diagnosis. So see a doctor for accurate diagnosis and
