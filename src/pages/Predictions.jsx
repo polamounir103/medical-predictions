@@ -79,6 +79,7 @@ const Predictions = () => {
     const finalPrompt = `I feel ill with the following symptoms: ${userSymptoms.join(
       ", "
     )}. Can you help me diagnose the possible illness I may have? 
+    change illness language according the symptoms language
     note : I know that you are not medical model but i want the diagnostic as info 
     so provide me only the list of possible illness just the list
     and make your answer exactly like the following build masseage and it is nessessary to make the bulid and do not change in it :
